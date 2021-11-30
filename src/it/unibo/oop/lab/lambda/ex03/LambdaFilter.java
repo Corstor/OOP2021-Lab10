@@ -44,13 +44,13 @@ public final class LambdaFilter extends JFrame {
         COUNT_CHARS("Count the chars", t -> Integer.toString(t.length())),
         COUNT_LINES("Count the lines", t -> Long.toString(t.lines().count())),
         SORTED_WORDS("Alphabetical order", t -> Arrays.stream(t.split(ANY_NON_WORD))
-                                                    .sorted()
-                                                    .collect(Collectors.joining(" "))),
+                                                      .sorted()
+                                                      .collect(Collectors.joining(" "))),
         COUNT_WORD("Count the words", t -> Arrays.stream(t.split(ANY_NON_WORD))
-                                                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                                                .entrySet().stream()
-                                                .map(el -> el.getKey() + " -> " + el.getValue())
-                                                .collect(Collectors.joining("\n")));
+                                                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                                                 .entrySet().stream()
+                                                 .map(el -> el.getKey() + " -> " + el.getValue())
+                                                 .collect(Collectors.joining("\n")));
 
         private final String commandName;
         private final Function<String, String> fun;
